@@ -67,6 +67,7 @@ Description=Controller als Xbox-360-Pad ausgeben
 [Service]
 ExecStart=/pfad/zu/controller-fix/controller-fix.py
 Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=default.target
