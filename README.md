@@ -29,8 +29,20 @@ angesteckt werden. Chromium muss nicht neu gestartet werden.
 
 Zum Testen https://hardwaretester.com/gamepad öffnen und eine Taste drücken. Dort
 sollte `Microsoft X-Box 360 pad (STANDARD GAMEPAD Vendor: 045e Product: 028e)`
-erscheinen. Der Original-Controller steht weiterhin in der Liste, liefert aber
-keine Eingaben mehr.
+erscheinen.
+
+## Original-Controller verstecken
+
+Ohne weiteres Zutun sieht Chromium den Original-Controller zusätzlich und listet
+ihn vor dem Xbox-Pad. Webseiten wie Luna nehmen dann den falschen. Die
+udev-Regel `69-controller-fix.rules` blendet ihn aus:
+
+```sh
+sudo install -m 644 69-controller-fix.rules /etc/udev/rules.d/
+sudo udevadm control --reload
+```
+
+Danach den Controller einmal ab- und wieder anstecken.
 
 ## Tastenbelegung anpassen
 

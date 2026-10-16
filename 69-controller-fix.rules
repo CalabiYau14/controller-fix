@@ -1,0 +1,4 @@
+# Versteckt den Original-Controller vor Chromium, damit Webseiten nur das
+# virtuelle Xbox-Pad von controller-fix.py sehen. Betrifft nur den joydev-Knoten
+# (js*); das evdev-Gerät (event*), das controller-fix.py liest, bleibt zugänglich.
+SUBSYSTEM=="input", KERNEL=="js*", ATTRS{id/vendor}=="0502", ATTRS{id/product}=="1309", ENV{ID_INPUT_JOYSTICK}="", MODE="0660"
